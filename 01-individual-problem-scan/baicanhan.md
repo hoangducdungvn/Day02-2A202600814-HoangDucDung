@@ -10,39 +10,24 @@
 | 4 | Lặp lại, Tốn thời gian | Soạn thảo và điền thông tin hợp đồng kinh tế theo mẫu | Nhân viên Sales B2B, Admin | Mở file template dài 15 trang, dùng Find & Replace thủ công để thay tên, MST, số tiền. Dễ bị sót lại thông tin của khách hàng cũ. |
 | 5 | Lặp lại, Tốn thời gian, Pain từ người khác | Sàng lọc CV ứng viên vòng hồ sơ | Chuyên viên Tuyển dụng (Recruiter) | Đọc lướt hàng trăm CV định dạng khác nhau để tìm từ khóa kỹ năng/kinh nghiệm. Dễ bị mỏi mắt, lỡ mất ứng viên tốt hoặc đưa nhầm ứng viên không đạt sang vòng phỏng vấn. |
 | 6 | Lặp lại, Tốn thời gian | Phân loại bình luận, tin nhắn khiếu nại trên mạng xã hội | Nhân viên trực page, Community Manager | Đọc hàng ngàn comment mỗi ngày để phân loại: hỏi giá, spam, khiếu nại. Khiếu nại trôi quá nhanh dẫn đến xử lý chậm trễ, gây khủng hoảng. |
-| 7 | | | | |
-| 8 | | | | |
-| 9 | | | | |
-| 10 | | | | |
 
-## 2. Top 3 Problem Cards
 
-### Problem Card 1: Xử lý hồ sơ hoàn tiền công tác phí
-- **Actor:** Kế toán nội bộ (Reviewer) & Nhân viên (Submitter).
-- **Lăng kính:** Pain từ người khác (nhân viên làm sai, kế toán phải hối thúc), Lặp lại.
-- **Mô tả vấn đề:** Quy trình claim tiền hiện tại yêu cầu nhân viên tự nhập liệu vào Excel và nộp ảnh hóa đơn. Kế toán phải tải về, mở hai màn hình dò số thủ công và đối chiếu với quy chế chi tiêu (file PDF) xem có hợp lệ không.
-- **Hậu quả/Dấu hiệu:** Mất trung bình 15-20 phút rà soát cho 1 bộ hồ sơ. Tỷ lệ trả về làm lại lên tới 40%, gây ức chế cho cả hai bên.
-- **Metrics (Cách đo):**
-  - Thời gian xử lý trung bình/hồ sơ (Average Handling Time).
-  - Tỷ lệ hồ sơ phải làm lại (Rework rate).
+## 2. Chọn top 3
 
-### Problem Card 2: Trích xuất & kiểm duyệt hồ sơ dịch vụ công trực tuyến
-- **Actor:** Cán bộ tiếp nhận hồ sơ / Chuyên viên hành chính.
-- **Lăng kính:** Tốn thời gian, Lặp lại, AI có thể tốt hơn.
-- **Mô tả vấn đề:** Khi người dân hoặc doanh nghiệp nộp hồ sơ qua cổng dịch vụ trực tuyến (ảnh chụp CMND/CCCD, giấy phép kinh doanh, tờ khai), cán bộ phải mở từng ảnh, đọc và gõ lại tay dữ liệu vào phần mềm quản lý lõi để xử lý tiếp.
-- **Hậu quả/Dấu hiệu:** Tốn nhiều giờ đồng hồ gõ phím. Sai sót do gõ nhầm (typos) dẫn đến sai lệch dữ liệu công dân/doanh nghiệp. Thời gian chờ đợi của người nộp bị kéo dài.
-- **Metrics (Cách đo):**
-  - Thời gian trích xuất dữ liệu từ một bộ hồ sơ.
-  - Tỷ lệ lỗi sai sót (Error rate) trong quá trình nhập liệu.
+Tiêu chí chọn:
 
-### Problem Card 3: Đánh giá chất lượng cuộc gọi CSKH (Telesales QA)
-- **Actor:** Nhân viên Kiểm soát chất lượng (QA) / Trưởng nhóm.
-- **Lăng kính:** Lặp lại, AI có thể tốt hơn.
-- **Mô tả vấn đề:** Hàng ngày tổng đài tạo ra hàng ngàn phút gọi. QA phải nghe lại thủ công từng file ghi âm, dùng file Excel để chấm điểm theo checklist (chào hỏi, giải quyết vấn đề, từ ngữ cấm).
-- **Hậu quả/Dấu hiệu:** Tốn thời gian nghe bằng đúng thời lượng cuộc gọi. Chỉ "cover" được <10% tổng số cuộc gọi. Đánh giá mang tính cảm tính của người chấm.
-- **Metrics (Cách đo):**
-  - Tỷ lệ % cuộc gọi được audit trên tổng số cuộc gọi (Coverage).
-  - Thời gian để audit 1 cuộc gọi.
+- Actor rõ.
+- Workflow hiện tại có thể vẽ được.
+- Bottleneck cụ thể.
+- Impact có thể đo hoặc ước lượng.
+- Có thể so sánh No AI / Rule / Workflow / Agent.
+- Không quá rộng cho một buổi lab.
+
+| Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
+|---|---|---|---|
+| 1 | Xử lý hồ sơ hoàn tiền công tác phí (Expense Claim) | Actor rõ ràng. Bottleneck cụ thể ở khâu đối chiếu hóa đơn và quy chế. Impact dễ đo bằng thời gian xử lý. Có thể so sánh rõ ràng Rule-based vs AI-based. Phù hợp cho 1 buổi lab. | Chất lượng ảnh chụp hóa đơn mờ, khả năng OCR chữ viết tay, cách xử lý các hóa đơn đặc thù không chuẩn mẫu. |
+| 2 | Trích xuất và kiểm duyệt hồ sơ dịch vụ công | Workflow vẽ được ngay. Bottleneck rõ ở khâu gõ lại dữ liệu tay. Impact tiết kiệm giờ làm cực lớn. | Vấn đề bảo mật dữ liệu giấy tờ. Đa dạng mẫu form, dễ bị lỗi nhận diện nếu giấy tờ cũ, nhòe. |
+| 3 | Đánh giá chất lượng cuộc gọi CSKH (Telesales QA) | Impact cực kỳ lớn (tăng audit coverage từ <5% lên 100%). Không thể làm bằng rule thường mà bắt buộc phải dùng AI. | Độ chính xác của model Speech-to-Text tiếng Việt vùng miền. Đánh giá sai "cảm xúc" (sentiment) của khách nếu chỉ dựa vào văn bản. |
 
 ## 3. Draft Workflow Trước/Sau (Before vs. After AI)
 
