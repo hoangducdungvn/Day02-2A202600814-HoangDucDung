@@ -62,103 +62,67 @@
 | **Mức chọn** | **Workflow**: AI chấm điểm nháp 100% và lọc lỗi; QA chỉ tập trung nghe lại các cuộc gọi bị AI đánh cờ (Flagged). |
 | **Rủi ro & HITL** | AI hiểu sai ngữ cảnh văn nói -> QA nghe lại đoạn vi phạm đã được highlight để chốt điểm cuối. |
 
-## 3. Draft Workflow Trước/Sau AI.
-### Workflow 1: Xử lý hồ sơ hoàn tiền công tác phí
 
-<!-- **[As-Is] Quy trình thủ công:**
-1. Nhân viên mở file Excel mẫu, gõ tay từng khoản chi (tiền taxi, tiền ăn) và đính kèm file ảnh hóa đơn gửi kế toán.
-2. Kế toán tải file, dò số liệu trên Excel có khớp với ảnh chụp không.
-3. Kế toán lật mở quy chế (PDF) xem khoản chi có vượt định mức của cấp bậc nhân viên đó không.
-4. Nếu sai/thiếu, chat qua Zalo/Teams yêu cầu nhân viên giải trình hoặc gõ lại form. (Vòng lặp 2-3 lần).
-5. Hồ sơ hợp lệ -> Đẩy lên sếp duyệt chi.
+## 3. Draft Workflow Trước/Sau (Before vs. After AI)
 
-**[To-Be] AI-Assisted Workflow:**
-1. Nhân viên chụp ảnh hóa đơn gửi vào bot nội bộ/App.
-2. AI (OCR + LLM) tự động đọc ảnh, bóc tách: Số tiền, Ngày tháng, Phân loại chi phí (Ăn uống, Đi lại) và tự tạo form.
-3. AI (Rule Engine) tự động đối chiếu thông tin với bảng nội quy công ty. Nếu hóa đơn vượt mức, AI báo đỏ và yêu cầu nhân viên bổ sung lý do ngay lập tức.
-4. Kế toán nhận một Dashboard đã được AI phân loại. Chỉ cần click "Duyệt" cho các hồ sơ báo Xanh (Chuẩn 100%), và dành thời gian kiểm tra các hồ sơ Vàng/Đỏ (Ngoại lệ/Rủi ro). -->
+### 3.1. Workflow 1: Xử lý hồ sơ hoàn tiền công tác phí
 
-======================================================================
-               [AS-IS] QUY TRÌNH THỦ CÔNG (MANUAL)
-======================================================================
+```text
+CURRENT STATE — 25 phút
 
-  [ NHÂN VIÊN ] 
-       |
-       | 1. Gõ tay form Excel & đính kèm ảnh hóa đơn
-       v
-  [ KẾ TOÁN ] <--------------------------------------------------+
-       |                                                         |
-       | 2. Tải file, mở 2 màn hình dò số bằng mắt (Excel vs Ảnh)|
-       v                                                         | 
- [ ĐỐI CHIẾU ] (3. Lật mở PDF quy chế, check định mức)           | 4. Nhắn tin
-       |                                                         | Zalo/Teams
-       +-------------------------------+                         | (Lặp 2-3 lần)
-       |                               |                         |
-   [ SAI / THIẾU ]                 [ HỢP LỆ ]                    |
-       |                               |                         |
-       +-------------------------------+-------------------------+
-                                       |
-                                       | 5. Đẩy hồ sơ hoàn chỉnh
-                                       v
-                                 [ SẾP DUYỆT ]
+[Nhân viên gõ Excel & nộp ảnh: 5']
+→ [Kế toán tải & dò số liệu: 5']
+→ [Kế toán lật quy chế kiểm tra: 10']  <-- bottleneck
+→ [Chat yêu cầu sửa/bổ sung: 3']
+→ [Đẩy sếp duyệt chi: 2']
 
+FUTURE STATE — 3 phút
 
-======================================================================
-             [TO-BE] QUY TRÌNH TRỢ LÝ AI (AI-ASSISTED)
-======================================================================
+[Nhân viên nộp ảnh qua bot: 1']
+→ [AI bóc tách dữ liệu hóa đơn: 0.5']
+→ [AI đối chiếu nội quy công ty: 0.5']
+→ [Kế toán kiểm duyệt Dashboard: 1']  <-- human boundary
 
-  [ NHÂN VIÊN ] <------------------------------------------------+
-       |                                                         |
-       | 1. Chụp ảnh hóa đơn, gửi thẳng vào Bot/App              |
-       v                                                         |
-  ===============================================                | 3b. AI báo ĐỎ,
-  ||                AI SYSTEM                  ||                | yêu cầu bổ sung
-  || 2. OCR + LLM: Đọc ảnh, bóc tách, tạo form ||                | lý do giải trình
-  || 3. Rule Engine: Check chéo nội quy công ty||                | ngay lập tức
-  ===============================================                |
-       |                                                         |
-       +-------------------------------+                         |
-       |                               |                         |
- [ NGOẠI LỆ / VƯỢT MỨC ]         [ HỢP LỆ (Chuẩn 100%) ]         |
-       |                               |                         |
-       +-------------------------------+-------------------------+
-       |                               |
-       | Đẩy hồ sơ (Gắn cờ Đỏ/Vàng)    | Đẩy hồ sơ (Gắn cờ Xanh)
-       v                               v
-  +-------------------------------------------------+
-  |              DASHBOARD KẾ TOÁN                  |
-  |-------------------------------------------------|
-  | - Hồ sơ Xanh: Click "Duyệt" hàng loạt nhanh gọn |
-  | - Hồ sơ Đỏ/Vàng: Dành thời gian check kỹ        |
-  +-------------------------------------------------+
+Fallback: AI báo đỏ/vàng → Kế toán kiểm tra thủ công
+```
 
-### Workflow 2: Kiểm duyệt hồ sơ dịch vụ trực tuyến
+### 3.2. Workflow 2: Kiểm duyệt hồ sơ dịch vụ trực tuyến
 
-**[As-Is] Quy trình thủ công:**
-1. Người dân/Doanh nghiệp upload ảnh giấy tờ lên cổng thông tin.
-2. Cán bộ tiếp nhận mở hệ thống, tải ảnh về màn hình phụ.
-3. Dùng mắt đọc thông tin trên ảnh (Tên, Số giấy tờ, Địa chỉ...).
-4. Gõ tay lại toàn bộ thông tin vào các trường (fields) trên phần mềm quản lý nghiệp vụ.
-5. Kiểm tra chéo bằng mắt một lần nữa rồi nhấn xác nhận chuyển hồ sơ cho phòng ban xử lý.
+```text
+CURRENT STATE — 15 phút
 
-**[To-Be] AI-Assisted Workflow:**
-1. Người dân/Doanh nghiệp upload ảnh.
-2. AI (OCR + Vision Models) tự động crop, làm nét ảnh và bóc tách 100% các trường thông tin quan trọng.
-3. AI tự động điền (auto-fill) vào form trên phần mềm nghiệp vụ của cán bộ.
-4. AI đánh dấu (highlight) các vùng thông tin bị mờ, nghi ngờ giả mạo hoặc có dấu hiệu tẩy xóa.
-5. Cán bộ tiếp nhận chỉ việc nhìn lướt qua để đối chiếu các trường AI đã điền với ảnh gốc (hiển thị side-by-side) và bấm nút "Tiếp nhận".
+[Dân upload ảnh giấy tờ: 2']
+→ [Cán bộ mở & tải ảnh: 1']
+→ [Đọc thông tin trên ảnh: 2']
+→ [Gõ lại toàn bộ dữ liệu: 8']  <-- bottleneck
+→ [Kiểm tra chéo & xác nhận: 2']
 
-### Workflow 3: Đánh giá chất lượng cuộc gọi (QA)
+FUTURE STATE — 2.5 phút
 
-**[As-Is] Quy trình thủ công:**
-1. Cuối ngày, QA tải ngẫu nhiên 10 file ghi âm từ hệ thống tổng đài.
-2. Đeo tai nghe, bật file. Vừa nghe vừa pause để gõ nhận xét vào file Excel chấm điểm.
-3. Cuối tuần, cộng điểm tay và gửi file báo cáo cho Trưởng nhóm CSKH.
-4. Trưởng nhóm họp 1-1 với nhân sự để nhắc nhở dựa trên 10 file ngẫu nhiên đó.
+[Dân upload ảnh giấy tờ: 1']
+→ [AI crop & làm nét ảnh: 0.5']
+→ [AI auto-fill vào form: 0.5']
+→ [Cán bộ đối chiếu side-by-side: 0.5']  <-- human boundary
 
-**[To-Be] AI-Assisted Workflow:**
-1. Các file ghi âm sau khi kết thúc được tự động đẩy vào hệ thống.
-2. AI (Speech-to-Text) tự động chuyển băng ghi âm thành văn bản (Transcript).
-3. AI (LLM Sentiment & Logic) phân tích Transcript dựa trên Checklist cho trước: Đã chào khách chưa? Khách có giận dữ không? Có chửi bậy không? Có bán chéo (cross-sell) được không?
-4. AI tự động chấm điểm 100% cuộc gọi.
-5. QA và Trưởng nhóm mở Dashboard: Nhìn thấy ngay nhân viên nào điểm thấp nhất trong ngày, và AI đã tóm tắt sẵn lý do (VD: Nhân viên A ngắt lời khách 3 lần ở phút thứ 2:05). Con người chỉ nghe lại các đoạn vi phạm để kiểm chứng.
+Fallback: AI nhận diện mờ/tẩy xóa → Cán bộ kiểm tra kỹ lại
+```
+
+### 3.3. Workflow 3: Đánh giá chất lượng cuộc gọi (QA)
+
+```text
+CURRENT STATE — 20 phút
+
+[Tải ngẫu nhiên file ghi âm: 2']
+→ [Nghe toàn bộ & ghi nhận xét: 10']  <-- bottleneck
+→ [Cộng điểm & gửi báo cáo: 3']
+→ [Họp 1-1 nhắc nhở nhân sự: 5']
+
+FUTURE STATE — 3 phút
+
+[Đẩy file tự động vào hệ thống: 0.5']
+→ [AI Speech-to-Text: 0.5']
+→ [AI chấm điểm theo Checklist: 1']
+→ [QA mở nghe đoạn vi phạm: 1']  <-- human boundary
+
+Fallback: AI hiểu sai ngữ cảnh → QA ghi đè (override) điểm
+```
