@@ -2,14 +2,18 @@
 
 ## 1. Scan 5+ Problems (Sử dụng 4 lăng kính)
 
-| # | Tên bài toán | Lăng kính áp dụng | Ai đang đau? (Actor) | Nỗi đau cụ thể (Pain point) & Dấu hiệu thật |
+| # | Lăng kính | Problem quan sát được | Ai đang đau? | Dấu hiệu thật |
 |---|---|---|---|---|
-| 1 | Kiểm tra và duyệt hồ sơ hoàn tiền công tác phí (Expense Claim) | Lặp lại, Tốn thời gian, Pain từ người khác | Kế toán nội bộ, Nhân viên đi công tác | Nhân viên nộp sai format/thiếu chứng từ. Kế toán phải dò số thủ công bằng mắt. Tranh cãi qua lại nhiều lần, mất 1-2 tuần để nhận lại tiền. |
-| 2 | Trích xuất và kiểm duyệt hồ sơ dịch vụ công/doanh nghiệp trực tuyến | Lặp lại, Tốn thời gian, AI làm tốt hơn | Chuyên viên hành chính công, Cán bộ tiếp nhận | Dân/Doanh nghiệp nộp ảnh chụp giấy tờ hoặc điền form sai quy chuẩn. Cán bộ phải gõ lại tay vào hệ thống lõi, dễ sai sót và gây nghẽn cổ chai trong khâu xử lý. |
-| 3 | Đánh giá chất lượng cuộc gọi CSKH (Telesales QA) | Lặp lại, Tốn thời gian, AI làm tốt hơn | Trưởng nhóm CSKH, Nhân viên QA | Phải nghe lại từng file ghi âm dài 10-15 phút để chấm điểm thái độ, kịch bản. Hiện tại chỉ chấm ngẫu nhiên được 5% số lượng cuộc gọi, bỏ lọt lỗi. |
-| 4 | Soạn thảo và điền thông tin hợp đồng kinh tế theo mẫu | Lặp lại, Tốn thời gian | Nhân viên Sales B2B, Admin | Mở file template dài 15 trang, dùng Find & Replace thủ công để thay tên, MST, số tiền. Dễ bị sót lại thông tin của khách hàng cũ. |
-| 5 | Sàng lọc CV ứng viên vòng hồ sơ | Lặp lại, Tốn thời gian, Pain từ người khác | Chuyên viên Tuyển dụng (Recruiter) | Đọc lướt hàng trăm CV định dạng khác nhau để tìm từ khóa kỹ năng/kinh nghiệm. Dễ bị mỏi mắt, lỡ mất ứng viên tốt hoặc đưa nhầm ứng viên không đạt sang vòng phỏng vấn. |
-| 6 | Phân loại bình luận, tin nhắn khiếu nại trên mạng xã hội | Lặp lại, Tốn thời gian | Nhân viên trực page, Community Manager | Đọc hàng ngàn comment mỗi ngày để phân loại: hỏi giá, spam, khiếu nại. Khiếu nại trôi quá nhanh dẫn đến xử lý chậm trễ, gây khủng hoảng. |
+| 1 | Lặp lại, Tốn thời gian, Pain từ người khác | Kiểm tra và duyệt hồ sơ hoàn tiền công tác phí (Expense Claim) | Kế toán nội bộ, Nhân viên đi công tác | Nhân viên nộp sai format/thiếu chứng từ. Kế toán phải dò số thủ công bằng mắt. Tranh cãi qua lại nhiều lần, mất 1-2 tuần để nhận lại tiền. |
+| 2 | Lặp lại, Tốn thời gian, AI làm tốt hơn | Trích xuất và kiểm duyệt hồ sơ dịch vụ công/doanh nghiệp trực tuyến | Chuyên viên hành chính công, Cán bộ tiếp nhận | Dân/Doanh nghiệp nộp ảnh chụp giấy tờ hoặc điền form sai quy chuẩn. Cán bộ phải gõ lại tay vào hệ thống lõi, dễ sai sót và gây nghẽn cổ chai trong khâu xử lý. |
+| 3 | Lặp lại, Tốn thời gian, AI làm tốt hơn | Đánh giá chất lượng cuộc gọi CSKH (Telesales QA) | Trưởng nhóm CSKH, Nhân viên QA | Phải nghe lại từng file ghi âm dài 10-15 phút để chấm điểm thái độ, kịch bản. Hiện tại chỉ chấm ngẫu nhiên được 5% số lượng cuộc gọi, bỏ lọt lỗi. |
+| 4 | Lặp lại, Tốn thời gian | Soạn thảo và điền thông tin hợp đồng kinh tế theo mẫu | Nhân viên Sales B2B, Admin | Mở file template dài 15 trang, dùng Find & Replace thủ công để thay tên, MST, số tiền. Dễ bị sót lại thông tin của khách hàng cũ. |
+| 5 | Lặp lại, Tốn thời gian, Pain từ người khác | Sàng lọc CV ứng viên vòng hồ sơ | Chuyên viên Tuyển dụng (Recruiter) | Đọc lướt hàng trăm CV định dạng khác nhau để tìm từ khóa kỹ năng/kinh nghiệm. Dễ bị mỏi mắt, lỡ mất ứng viên tốt hoặc đưa nhầm ứng viên không đạt sang vòng phỏng vấn. |
+| 6 | Lặp lại, Tốn thời gian | Phân loại bình luận, tin nhắn khiếu nại trên mạng xã hội | Nhân viên trực page, Community Manager | Đọc hàng ngàn comment mỗi ngày để phân loại: hỏi giá, spam, khiếu nại. Khiếu nại trôi quá nhanh dẫn đến xử lý chậm trễ, gây khủng hoảng. |
+| 7 | | | | |
+| 8 | | | | |
+| 9 | | | | |
+| 10 | | | | |
 
 ## 2. Top 3 Problem Cards
 
