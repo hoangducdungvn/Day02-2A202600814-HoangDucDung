@@ -37,14 +37,14 @@
 
 | Candidate | Actor rõ | Workflow rõ | Pain có evidence | Impact đo được | Làm trong lab | So sánh R/W/A được | Nhóm hiểu domain | Tổng |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| **1. AI Agent làm Virtual TA / Tutor** | **5**<br>(Học viên & TA) | **4**<br>(Luồng QA rõ nhưng flow Agent cần chi tiết thêm) | **5**<br>(Ai cũng từng là học viên chờ TA) | **5**<br>(Đo thời gian phản hồi) | **3**<br>(Làm RAG chuẩn mất nhiều thời gian gom data) | **5**<br>(Dễ so sánh Bot cứng / Workflow / Agent) | **4**<br>(Trải nghiệm học viên tốt, nhưng góc nhìn TA thì ít) | **31** |
+| **1. AI Agent làm Virtual TA / Tutor** | **5**<br>(Học viên & TA) | **3**<br>(Luồng QA rõ nhưng flow Agent cần chi tiết thêm) | **5**<br>(Ai cũng từng là học viên chờ TA) | **5**<br>(Đo thời gian phản hồi) | **2**<br>(Làm RAG chuẩn mất nhiều thời gian gom data) | **5**<br>(Dễ so sánh Bot cứng / Workflow / Agent) | **4**<br>(Trải nghiệm học viên tốt, nhưng góc nhìn TA thì ít) | **31** |
 | **2. Workflow trích xuất OCR hồ sơ** | **5**<br>(Kế toán, HCNS) | **5**<br>(Step-by-step duyệt rất rõ) | **4**<br>(Dựa trên kinh nghiệm thực tế của người đề xuất) | **5**<br>(Đo thời gian xử lý/hồ sơ) | **4**<br>(Dùng API OCR có sẵn nên làm khá nhanh) | **3**<br>(Nghiêng về Workflow tích hợp AI hơn là dùng sức mạnh Agent) | **4**<br>(1 người hiểu sâu, nhưng số đông chưa trải nghiệm) | **30** |
 | **3. Gom luồng thông báo tập trung** | **5**<br>(Tất cả User) | **5**<br>(Từ App -> Webhook -> 1 nơi) | **4**<br>(Thường xuyên bị trôi tin nhắn làm lỡ việc) | **3**<br>(Khó quy ra số phút/giờ tiết kiệm cụ thể) | **5**<br>(Rất dễ, nối Zapier/Make là xong) | **2**<br>(Chỉ cần Workflow là giải quyết được, ép Agent vào bị gượng) | **5**<br>(Ai cũng hiểu nỗi đau này) | **29** |
 
 ### Kết luận: Quyết định của nhóm
 
 **1. Nhóm chọn Candidate nào?**
-👉 Nhóm quyết định chọn **Candidate 2: Workflow trích xuất & đối chiếu hồ sơ (OCR)**.
+ Nhóm quyết định chọn **Candidate 2: Workflow trích xuất & đối chiếu hồ sơ (OCR)**.
 
 **2. Vì sao lại chọn Candidate này?**
 - **Domain knowledge sâu sắc:** Nhóm có thành viên trực tiếp đưa ra vấn đề nên thấu hiểu rất rõ nghiệp vụ, các bước xử lý và cả những "góc khuất" (edge cases) của quy trình. Điều này đảm bảo việc thiết kế Workflow sẽ cực kỳ sát thực tế và tính khả thi cao.
@@ -54,3 +54,9 @@
 **3. Vì sao KHÔNG nên chọn các bài khác?**
 - ❌ **Đối với bài "AI Agent làm Virtual TA" (Candidate 1):** Dù tính năng Agent rất hấp dẫn nhưng rủi ro thất bại trong buổi lab là quá cao. Việc phải chuẩn bị dữ liệu (Knowledge Base) đủ sạch và đủ nhiều để RAG trả lời chính xác mà không bị "ảo giác" (hallucinate) là một thách thức lớn. Nếu bot trả lời sai kiến thức, hậu quả sẽ khá nghiêm trọng.
 - ❌ **Đối với bài "Gom luồng thông báo" (Candidate 3):** Quá đơn giản. Vấn đề này hoàn toàn có thể được xử lý gọn gàng bằng các tool tự động hóa cơ bản (Rule/Workflow) như Make hay Zapier. Nếu áp dụng AI/Agent vào đây thì mang tính chất "dao mổ trâu giết gà", không tận dụng hết và không phô diễn được năng lực suy luận của hệ thống LLM.
+
+**4. Nếu có disagreement (bất đồng quan điểm), nhóm xử lý thế nào?**
+- **Bám sát tiêu chí chấm điểm (Data-driven):** Dùng lại bảng matrix điểm 1-5 ở trên làm mỏ neo. Khi tranh luận, mọi ý kiến phải dựa trên các con số thay vì cảm tính cá nhân.
+- **Ưu tiên tính khả thi (Time-boxing):** Đặt câu hỏi thực tế *"Liệu có làm kịp ra sản phẩm demo trong thời gian buổi lab hôm nay không?"*. Ý tưởng hay đến mấy nhưng tốn quá nhiều thời gian setup data hoặc code thì bắt buộc phải hạ độ ưu tiên hoặc thu hẹp phạm vi (scope down).
+- **Trọng tài Domain Knowledge:** Nếu hai ý tưởng có điểm bằng nhau, quyền quyết định cuối cùng (tie-breaker) sẽ nghiêng về ý tưởng mà nhóm có người hiểu thật sự sâu sắc (domain expert) nghiệp vụ đó nhất, để đảm bảo chất lượng workflow khi thiết kế.
+- **Biểu quyết (Voting):** Sau khi đã đi qua 3 bước trên mà vẫn chưa chốt được, nhóm sẽ tiến hành vote theo nguyên tắc đa số thắng. Các thành viên thiểu số sẽ "cam kết" (commit) đồng lòng thực hiện cùng team để giữ vững tiến độ.
