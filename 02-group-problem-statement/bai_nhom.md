@@ -59,4 +59,32 @@
 - **Bám sát tiêu chí chấm điểm (Data-driven):** Dùng lại bảng matrix điểm 1-5 ở trên làm mỏ neo. Khi tranh luận, mọi ý kiến phải dựa trên các con số thay vì cảm tính cá nhân.
 - **Ưu tiên tính khả thi (Time-boxing):** Đặt câu hỏi thực tế *"Liệu có làm kịp ra sản phẩm demo trong thời gian buổi lab hôm nay không?"*. Ý tưởng hay đến mấy nhưng tốn quá nhiều thời gian setup data hoặc code thì bắt buộc phải hạ độ ưu tiên hoặc thu hẹp phạm vi (scope down).
 - **Trọng tài Domain Knowledge:** Nếu hai ý tưởng có điểm bằng nhau, quyền quyết định cuối cùng (tie-breaker) sẽ nghiêng về ý tưởng mà nhóm có người hiểu thật sự sâu sắc (domain expert) nghiệp vụ đó nhất, để đảm bảo chất lượng workflow khi thiết kế.
-- **Biểu quyết (Voting):** Sau khi đã đi qua 3 bước trên mà vẫn chưa chốt được, nhóm sẽ tiến hành vote theo nguyên tắc đa số thắng. Các thành viên thiểu số sẽ "cam kết" (commit) đồng lòng thực hiện cùng team để giữ vững tiến độ.
+- **Biểu quyết (Voting):** Sau khi đã đi qua 3 bước trên mà vẫn chưa chốt được, nhóm sẽ tiến hành vote theo nguyên tắc đa số thắng. Các thành viên thiểu số sẽ "cam kết" (commit) đồng lòng thực hiện cùng team để giữ vững tiến độ.
+
+<!-- # 3.5 - Các giải pháp/ứng dụng công nghệ có sẵn (Không cần code từ đầu)
+
+Để giải quyết bài toán OCR và đối chiếu hồ sơ một cách nhanh chóng trong buổi lab, nhóm đề xuất tận dụng phương pháp **Lắp ghép các công cụ có sẵn (No-code/Low-code)**. Dưới đây là các ứng dụng và dịch vụ nổi bật có thể ứng dụng ngay:
+
+### 1. Nhóm API lõi trích xuất dữ liệu (OCR & Document AI)
+Nhóm này làm nhiệm vụ "đọc hiểu" ảnh chụp và trả về dữ liệu văn bản đã được phân loại rõ ràng (Mã số thuế, Tổng tiền, Ngày tháng...).
+- **Giải pháp nội địa (Rất mạnh cho form mẫu Tiếng Việt):** FPT.AI Reader, Viettel AI, VNPT Smart Vision, VNG Cloud OCR.
+- **Giải pháp Big Tech quốc tế:** Google Cloud Document AI (rất giỏi đọc hóa đơn/biên lai), Microsoft Azure Document Intelligence (nhận diện bảng biểu xuất sắc), Amazon Textract, ABBYY Vantage.
+
+### 2. Nhóm nền tảng tự động hóa (Workflow Automation)
+Nhóm này đóng vai trò như "đường ống" nối các ứng dụng lại với nhau mà không cần viết code.
+- **Make.com / Zapier / n8n:** Cho phép thiết lập luồng tự động (VD: Có file mới ở Google Drive -> Gọi API Google Vision đọc ảnh -> Ghi kết quả vào file Google Sheets).
+- **Microsoft Power Automate:** Rất phù hợp nếu doanh nghiệp đang sử dụng hệ sinh thái Microsoft 365.
+
+### 3. Nhóm giải pháp SaaS trọn gói (End-to-End Invoice/Document Processing)
+Nếu doanh nghiệp cần "mua đứt" một phần mềm làm từ A-Z (có sẵn cả chức năng OCR và luồng phê duyệt):
+- **Bizzi.vn:** Nền tảng số 1 tại Việt Nam chuyên tự động xử lý, trích xuất và kiểm tra tính hợp lệ của hóa đơn điện tử.
+- **Ubot Invoice (FPT akaBot):** Kết hợp Robot tự động hóa (RPA) và OCR để tự tải hóa đơn từ email, đọc dữ liệu rồi nhập thẳng vào phần mềm kế toán (MISA, FAST, SAP).
+- **Base.vn (Base Workflow / Base Request):** Ứng dụng số hóa quy trình và phê duyệt đề xuất cực kỳ phổ biến ở Việt Nam, có thể kết nối với các API OCR thông qua Webhook. -->
+
+# 4.1 Quick validation
+# 4.2 Research giải pháp đã có
+| Nguồn / tool / case | Link | Họ giải quyết phần nào? | Điểm mạnh | Khoảng trống / rủi ro | Bài học cho nhóm |
+|:---|:---|:---|:---|:---|:---|
+| **Bizzi.vn**<br>(SaaS xử lý hóa đơn tự động) | [bizzi.vn](https://bizzi.vn/) | Giải quyết trọn gói từ khâu nhận file (email/upload) -> OCR trích xuất -> Đối chiếu tính hợp lệ của hóa đơn với cơ quan thuế -> Chuyển vào ERP. | Cực kỳ am hiểu hóa đơn Việt Nam, xử lý end-to-end hoàn thiện, không cần người dùng tự cấu hình kỹ thuật. | Đóng gói sẵn (Blackbox), khó tuỳ biến nếu hồ sơ, giấy tờ của công ty là loại đặc thù riêng (phi tiêu chuẩn). | Cần xây dựng luồng phê duyệt rõ ràng giống Bizzi. Nhận ra rằng bài toán không chỉ dừng ở việc "đọc chữ" mà phải "hiểu và đối chiếu" dữ liệu. |
+| **Google Cloud Document AI**<br>(API Trích xuất lõi) | [cloud.google.com/document-ai](https://cloud.google.com/document-ai) | Tập trung vào bước lõi (Core): Dùng AI trích xuất dữ liệu từ PDF/Ảnh thành JSON có cấu trúc (nhận diện form, key-value, table). | Model AI cực mạnh, nhận diện cấu trúc bảng biểu phức tạp rất tốt, độ chính xác cao kể cả với bản scan mờ. | Chỉ cung cấp API xử lý dữ liệu. Chưa có giao diện luồng (workflow) luân chuyển tài liệu giữa các phòng ban (cần dùng tool khác ráp vào). | Không nên cố tự train mô hình OCR từ đầu vì rất tốn kém và khó bằng Big Tech. Nên tận dụng API có sẵn này và tập trung vào việc ráp nối Workflow. |
+| **FPT.AI Reader**<br>(Giải pháp OCR nội địa) | [fpt.ai/vi/fpt-ai-reader](https://fpt.ai/vi/fpt-ai-reader) | Trích xuất thông tin giấy tờ tùy thân (CCCD) và các loại chứng từ, hóa đơn đỏ nội địa đặc thù của Việt Nam. | Đọc Tiếng Việt xuất sắc, đáp ứng chuẩn bảo mật trong nước, hỗ trợ kỹ thuật sát sao tại local. | Yêu cầu đội ngũ IT nội bộ để tích hợp API vào hệ thống quản lý hoặc ERP cũ của công ty. | Tiếng Việt có dấu rất phức tạp. Việc chọn công cụ lõi OCR phải ưu tiên công cụ hiểu tốt ngữ cảnh Tiếng Việt và các form mẫu đặc thù trong nước. |
