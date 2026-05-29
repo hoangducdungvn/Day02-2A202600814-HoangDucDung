@@ -1,6 +1,6 @@
 # AI Product Lab - Worksheet
 
-## 1. Scan 5+ Problems (Sử dụng 4 lăng kính)
+## 1. Scan 5+ Problems
 
 | # | Lăng kính | Problem quan sát được | Ai đang đau? | Dấu hiệu thật |
 |---|---|---|---|---|
