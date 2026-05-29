@@ -62,11 +62,10 @@
 | **Mức chọn** | **Workflow**: AI chấm điểm nháp 100% và lọc lỗi; QA chỉ tập trung nghe lại các cuộc gọi bị AI đánh cờ (Flagged). |
 | **Rủi ro & HITL** | AI hiểu sai ngữ cảnh văn nói -> QA nghe lại đoạn vi phạm đã được highlight để chốt điểm cuối. |
 
-## 3. Draft Workflow Trước/Sau (Before vs. After AI)
-
+## 3. Draft Workflow Trước/Sau AI.
 ### Workflow 1: Xử lý hồ sơ hoàn tiền công tác phí
 
-**[As-Is] Quy trình thủ công:**
+<!-- **[As-Is] Quy trình thủ công:**
 1. Nhân viên mở file Excel mẫu, gõ tay từng khoản chi (tiền taxi, tiền ăn) và đính kèm file ảnh hóa đơn gửi kế toán.
 2. Kế toán tải file, dò số liệu trên Excel có khớp với ảnh chụp không.
 3. Kế toán lật mở quy chế (PDF) xem khoản chi có vượt định mức của cấp bậc nhân viên đó không.
@@ -77,7 +76,61 @@
 1. Nhân viên chụp ảnh hóa đơn gửi vào bot nội bộ/App.
 2. AI (OCR + LLM) tự động đọc ảnh, bóc tách: Số tiền, Ngày tháng, Phân loại chi phí (Ăn uống, Đi lại) và tự tạo form.
 3. AI (Rule Engine) tự động đối chiếu thông tin với bảng nội quy công ty. Nếu hóa đơn vượt mức, AI báo đỏ và yêu cầu nhân viên bổ sung lý do ngay lập tức.
-4. Kế toán nhận một Dashboard đã được AI phân loại. Chỉ cần click "Duyệt" cho các hồ sơ báo Xanh (Chuẩn 100%), và dành thời gian kiểm tra các hồ sơ Vàng/Đỏ (Ngoại lệ/Rủi ro).
+4. Kế toán nhận một Dashboard đã được AI phân loại. Chỉ cần click "Duyệt" cho các hồ sơ báo Xanh (Chuẩn 100%), và dành thời gian kiểm tra các hồ sơ Vàng/Đỏ (Ngoại lệ/Rủi ro). -->
+
+======================================================================
+               [AS-IS] QUY TRÌNH THỦ CÔNG (MANUAL)
+======================================================================
+
+  [ NHÂN VIÊN ] 
+       |
+       | 1. Gõ tay form Excel & đính kèm ảnh hóa đơn
+       v
+  [ KẾ TOÁN ] <--------------------------------------------------+
+       |                                                         |
+       | 2. Tải file, mở 2 màn hình dò số bằng mắt (Excel vs Ảnh)|
+       v                                                         | 
+ [ ĐỐI CHIẾU ] (3. Lật mở PDF quy chế, check định mức)           | 4. Nhắn tin
+       |                                                         | Zalo/Teams
+       +-------------------------------+                         | (Lặp 2-3 lần)
+       |                               |                         |
+   [ SAI / THIẾU ]                 [ HỢP LỆ ]                    |
+       |                               |                         |
+       +-------------------------------+-------------------------+
+                                       |
+                                       | 5. Đẩy hồ sơ hoàn chỉnh
+                                       v
+                                 [ SẾP DUYỆT ]
+
+
+======================================================================
+             [TO-BE] QUY TRÌNH TRỢ LÝ AI (AI-ASSISTED)
+======================================================================
+
+  [ NHÂN VIÊN ] <------------------------------------------------+
+       |                                                         |
+       | 1. Chụp ảnh hóa đơn, gửi thẳng vào Bot/App              |
+       v                                                         |
+  ===============================================                | 3b. AI báo ĐỎ,
+  ||                AI SYSTEM                  ||                | yêu cầu bổ sung
+  || 2. OCR + LLM: Đọc ảnh, bóc tách, tạo form ||                | lý do giải trình
+  || 3. Rule Engine: Check chéo nội quy công ty||                | ngay lập tức
+  ===============================================                |
+       |                                                         |
+       +-------------------------------+                         |
+       |                               |                         |
+ [ NGOẠI LỆ / VƯỢT MỨC ]         [ HỢP LỆ (Chuẩn 100%) ]         |
+       |                               |                         |
+       +-------------------------------+-------------------------+
+       |                               |
+       | Đẩy hồ sơ (Gắn cờ Đỏ/Vàng)    | Đẩy hồ sơ (Gắn cờ Xanh)
+       v                               v
+  +-------------------------------------------------+
+  |              DASHBOARD KẾ TOÁN                  |
+  |-------------------------------------------------|
+  | - Hồ sơ Xanh: Click "Duyệt" hàng loạt nhanh gọn |
+  | - Hồ sơ Đỏ/Vàng: Dành thời gian check kỹ        |
+  +-------------------------------------------------+
 
 ### Workflow 2: Kiểm duyệt hồ sơ dịch vụ trực tuyến
 
