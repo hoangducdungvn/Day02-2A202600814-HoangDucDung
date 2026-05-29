@@ -5,7 +5,7 @@
 | **Scan cá nhân** | Đưa ra 6 problems, trong đó có 3 problems thực tế về mảng Back-office (OCR hồ sơ công tác phí, dịch vụ công, QA âm thanh). | Nhóm có được các candidate rất sát với thực tiễn doanh nghiệp, impact đo lường được ngay. |
 | **Pitch** | Thuyết phục và định hướng nhóm tập trung vào Candidate "Đánh giá chất lượng cuộc gọi CSKH chỉ đạt tỷ lệ rất thấp". | Bài toán được vào shortlist và cuối cùng được nhóm vote chọn làm giải pháp chính thức. |
 | **Challenge** | Đề xuất làm rõ phần impact . | Nhóm ra quyết định dựa trên data (data-driven) và tính khả thi (time-boxing) thay vì cảm tính. |
-| **Research** | Khảo sát các công nghệ có sẵn (Bizzi.vn, Google Cloud Document AI, FPT.AI Reader). | Giúp nhóm thay đổi tư duy: Dùng công cụ lắp ghép (No-code) thay vì tốn thời gian build model từ đầu. |
+| **Research** | Khảo sát các công nghệ có sẵn. | Giúp nhóm thay đổi tư duy: Dùng công cụ lắp ghép (No-code) thay vì tốn thời gian build model từ đầu. |
 | **Rule / Workflow / Agent** | Lập luận ưu tiên Workflow OCR, chỉ ra rủi ro fail lab của Agent (Virtual TA) và bàn lùi việc lạm dụng Agent cho báo cáo (Candidate 3). | Nhóm thống nhất decision cuối cùng, không rơi vào bẫy "dùng dao mổ trâu giết gà", chọn hướng đi thực tế nhất. |
 
 # 6. Bảng dùng AI
